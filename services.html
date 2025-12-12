@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Services offered by Helping Hands Community Centre">
+<title>Our Services - Helping Hands Community Centre</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Lightbox Styles */
+.image-container {
+position: relative;
+display: inline-block;
+width: 100%;
+cursor: pointer;
+overflow: hidden;
+}
+
+.image-container img {
+width: 100%;
+height: auto;
+transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+transform: scale(1.03);
+}
+
+.lightbox {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+display: flex;
+opacity: 1;
+animation: fadeIn 0.3s ease forwards;
+}
+
+.lightbox-content {
+max-width: 90%;
+max-height: 90%;
+position: relative;
+}
+
+.lightbox-content img {
+width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+color: white;
+text-align: center;
+padding: 15px;
+font-size: 18px;
+background: rgba(0, 0, 0, 0.7);
+border-radius: 0 0 8px 8px;
+}
+
+.close-lightbox {
+position: absolute;
+top: 20px;
+right: 20px;
+color: white;
+font-size: 40px;
+cursor: pointer;
+background: none;
+border: none;
+z-index: 1001;
+transition: transform 0.3s ease;
+}
+
+.close-lightbox:hover {
+transform: scale(1.2);
+}
+
+.lightbox-nav {
+position: absolute;
+width: 100%;
+top: 50%;
+display: flex;
+justify-content: space-between;
+padding: 0 20px;
+transform: translateY(-50%);
+z-index: 1001;
+}
+
+.nav-btn {
+background: rgba(255, 255, 255, 0.2);
+color: white;
+border: none;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+font-size: 24px;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.nav-btn:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+/* Service image hover effect */
+.service-image img {
+transition: all 0.3s ease;
+}
+
+.service-image:hover img {
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image overlay text */
+.image-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.7);
+color: white;
+padding: 10px;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+<div class="container">
+<div class="logo">
+<h1>Helping Hands</h1>
+</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="services.html" class="active">Services</a></li>
+<li><a href="enquiry.html">Volunteer</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1>Our Services</h1>
+<p>Comprehensive support programs designed to uplift underprivileged communities</p>
+</div>
+</section>
+
+<!-- Lightbox Container -->
+<div class="lightbox" id="lightbox">
+<button class="close-lightbox" id="closeLightbox">&times;</button>
+<div class="lightbox-nav">
+<button class="nav-btn" id="prevBtn">&#10094;</button>
+<button class="nav-btn" id="nextBtn">&#10095;</button>
+</div>
+<div class="lightbox-content">
+<img id="lightbox-img" src="" alt="">
+<div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+</div>
+
+<!-- Services Grid -->
+<section class="services-detail">
+<div class="container">
+<!-- Food Parcels Service -->
+<div class="service-detail">
+<div class="service-image">
+<div class="image-container" data-index="0">
+<img src="./images/FoodParcels.jpg" alt="Food parcels being distributed to families in need">
+<div class="image-overlay">Click to enlarge</div>
+</div>
+<div class="">Food Parcels Image</div>
+</div>
+<div class="service-content">
+<h2>Food Parcel Distribution</h2>
+<p>We provide nutritious food parcels to families and individuals facing food insecurity. Each parcel contains essential items to sustain a family for up to two weeks.</p>
+<ul>
+<li>Monthly distribution to registered families</li>
+<li>Emergency food parcels for crisis situations</li>
+<li>Special dietary requirements accommodated</li>
+<li>Nutritional education and cooking workshops</li>
+</ul>
+<div class="service-stats">
+<div class="stat">
+<strong>500+</strong>
+<span>Families served monthly</span>
+</div>
+<div class="stat">
+<strong>10,000+</strong>
+<span>Meals provided monthly</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Clothing Donations -->
+<div class="service-detail reverse">
+<div class="service-content">
+<h2>Clothing Donations</h2>
+<p>We collect and distribute quality clothing to keep people warm, dignified, and prepared for job interviews and daily life.</p>
+<ul>
+<li>Seasonal clothing distributions</li>
+<li>Professional attire for job seekers</li>
+<li>School uniforms for children</li>
+<li>Baby clothing and essentials</li>
+</ul>
+<div class="service-stats">
+<div class="stat">
+<strong>2,000+</strong>
+<span>People clothed monthly</span>
+</div>
+<div class="stat">
+<strong>50+</strong>
+<span>Corporate clothing drives</span>
+</div>
+</div>
+</div>
+<div class="service-image">
+<div class="image-container" data-index="1">
+<img src="./images/clothingdonation.jpg" alt="Volunteers sorting and organizing clothing donations">
+<div class="image-overlay">Click to enlarge</div>
+</div>
+<div class="">Clothing Donations Image</div>
+</div>
+</div>
+
+<!-- Temporary Shelter -->
+<div class="service-detail">
+<div class="service-image">
+<div class="image-container" data-index="2">
+<img src="./images/temporaryaccomodation.jpg" alt="Clean and safe temporary shelter accommodations">
+<div class="image-overlay">Click to enlarge</div>
+</div>
+<div class="">Shelter Image</div>
+</div>
+<div class="service-content">
+<h2>Temporary Shelter</h2>
+<p>We provide safe, temporary accommodation for homeless individuals and families while working towards permanent housing solutions.</p>
+<ul>
+<li>Safe overnight accommodation</li>
+<li>Family units for parents with children</li>
+<li>Basic hygiene facilities</li>
+<li>Case management and support services</li>
+</ul>
+<div class="service-stats">
+<div class="stat">
+<strong>100+</strong>
+<span>Beds available</span>
+</div>
+<div class="stat">
+<strong>75%</strong>
+<span>Successful transitions to permanent housing</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Education Programs -->
+<div class="service-detail reverse">
+<div class="service-content">
+<h2>Education & Skills Development</h2>
+<p>We offer educational support and skills development programs to help individuals gain independence and improve their employment prospects.</p>
+<ul>
+<li>Adult literacy classes</li>
+<li>Computer skills training</li>
+<li>Job readiness workshops</li>
+<li>After-school tutoring for children</li>
+<li>Vocational training programs</li>
+</ul>
+<div class="service-stats">
+<div class="stat">
+<strong>300+</strong>
+<span>Students enrolled annually</span>
+</div>
+<div class="stat">
+<strong>65%</strong>
+<span>Employment rate after completion</span>
+</div>
+</div>
+</div>
+<div class="service-image">
+<div class="image-container" data-index="3">
+<img src="./images/education.jpg" alt="Education and skills development classes in session">
+<div class="image-overlay">Click to enlarge</div>
+</div>
+<div class="">Education Image</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+<div class="container">
+<h2>Want to Support Our Services?</h2>
+<p>Your donation can help us expand our programs and reach more people in need.</p>
+<div class="cta-buttons">
+<a href="enquiry.html" class="btn btn-primary">Volunteer With Us</a>
+<a href="contact.html" class="btn btn-secondary">Make a Donation</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Helping Hands Community Centre</h3>
+<p>Combatting hunger and homelessness in Johannesburg since 2015.</p>
+</div>
+<div class="footer-section">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="enquiry.html">Volunteer</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Contact Info</h4>
+<p>Email: info@helpinghands.org.za</p>
+<p>Phone: +27 11 123 4567</p>
+<p>Johannesburg, South Africa</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 Helping Hands Community Centre. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeLightbox = document.getElementById('closeLightbox');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+// Get all image containers
+const imageContainers = document.querySelectorAll('.image-container');
+let currentIndex = 0;
+
+// Image data for captions
+const imageData = [
+{
+src: './images/FoodParcels.jpg',
+caption: 'Food Parcel Distribution - Providing nutritious food to families in need'
+},
+{
+src: './images/clothingdonation.jpg',
+caption: 'Clothing Donations - Sorting and organizing donated clothing for distribution'
+},
+{
+src: './images/temporaryaccomodation.jpg',
+caption: 'Temporary Shelter - Safe accommodation for homeless individuals and families'
+},
+{
+src: './images/education.jpg',
+caption: 'Education Programs - Skills development and educational support services'
+}
+];
+
+// Open lightbox when image is clicked
+imageContainers.forEach(container => {
+container.addEventListener('click', function(e) {
+e.stopPropagation();
+currentIndex = parseInt(this.getAttribute('data-index'));
+updateLightbox();
+lightbox.classList.add('active');
+document.body.style.overflow = 'hidden'; // Prevent scrolling
+});
+
+// Also open on hover if you prefer hover-only (uncomment below)
+// container.addEventListener('mouseenter', function(e) {
+// if (!lightbox.classList.contains('active')) {
+// currentIndex = parseInt(this.getAttribute('data-index'));
+// updateLightbox();
+// lightbox.classList.add('active');
+// }
+// });
+});
+
+// Update lightbox content
+function updateLightbox() {
+lightboxImg.src = imageData[currentIndex].src;
+lightboxCaption.textContent = imageData[currentIndex].caption;
+}
+
+// Close lightbox
+function closeLightboxFunc() {
+lightbox.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+closeLightbox.addEventListener('click', closeLightboxFunc);
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', function(e) {
+if (e.target === lightbox) {
+closeLightboxFunc();
+}
+});
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+closeLightboxFunc();
+}
+// Navigation with arrow keys
+if (lightbox.classList.contains('active')) {
+if (e.key === 'ArrowLeft') {
+navigate(-1);
+} else if (e.key === 'ArrowRight') {
+navigate(1);
+}
+}
+});
+
+// Navigation functions
+function navigate(direction) {
+currentIndex += direction;
+if (currentIndex < 0) {
+currentIndex = imageData.length - 1;
+} else if (currentIndex >= imageData.length) {
+currentIndex = 0;
+}
+updateLightbox();
+}
+
+prevBtn.addEventListener('click', function(e) {
+e.stopPropagation();
+navigate(-1);
+});
+
+nextBtn.addEventListener('click', function(e) {
+e.stopPropagation();
+navigate(1);
+});
+
+// Hover effect for images (optional alternative to click)
+imageContainers.forEach(container => {
+const img = container.querySelector('img');
+
+container.addEventListener('mouseenter', function() {
+if (!lightbox.classList.contains('active')) {
+img.style.transform = 'scale(1.05)';
+}
+});
+
+container.addEventListener('mouseleave', function() {
+if (!lightbox.classList.contains('active')) {
+img.style.transform = 'scale(1)';
+}
+});
+});
+});
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>
